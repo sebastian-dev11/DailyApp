@@ -1,0 +1,4 @@
+com\dailyapp\loginapp\entities\Usuario.class
+com\dailyapp\loginapp\LoginappApplication.class
+com\dailyapp\loginapp\Repositories\UsuarioRepository.class
+com\dailyapp\loginapp\config\SecurityConfig.class

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #fce4ec;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 12px 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .nombre-app {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #d81b60;
+        }
+
+        .usuario-sesion {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .usuario {
+            font-weight: 500;
+            color: #d81b60;
+            font-size: 16px;
+        }
+
+        #logoutBtn {
+            padding: 8px 16px;
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        #logoutBtn:hover {
+            background-color: #b0003a;
+        }
+
+        .contenido {
+            padding: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="img/DAILYAPP logo.png" alt="Logo de la App">
+        <span class="nombre-app">DailyApp</span>
+    </div>
+    <div class="usuario-sesion">
+        <div class="usuario" id="usuarioNombre">Cargando usuario...</div>
+        <button id="logoutBtn">Cerrar sesión</button>
+    </div>
+</header>
+
+<div class="contenido">
+    <h1>Bienvenido al Dashboard</h1>
+    <p>Aquí verás tus módulos conforme los desarrolles.</p>
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
