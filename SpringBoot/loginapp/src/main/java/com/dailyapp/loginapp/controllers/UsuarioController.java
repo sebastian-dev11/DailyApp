@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.servlet.http.HttpSession;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8080") // Habilita CORS
+@CrossOrigin(origins = "http://localhost:8080", allowCredentials = "true") // ✅ CORS con credenciales
 @RestController
 @RequestMapping("/auth")
 public class UsuarioController {
@@ -27,13 +27,22 @@ public class UsuarioController {
     // Iniciar sesión y guardar usuario en sesión
     @PostMapping("/login")
     public ResponseEntity<String> iniciarSesion(@RequestBody Usuario usuario, HttpSession session) {
-        boolean valido = usuarioService.validarCredenciales(usuario.getCorreo(), usuario.getContrasena());
-        if (valido) {
-            Optional<Usuario> usuarioOptional = usuarioService.findByCorreo(usuario.getCorreo());
-            usuarioOptional.ifPresent(u -> session.setAttribute("usuario", u));
-            return ResponseEntity.ok("Inicio de sesión exitoso");
-        } else {
-            return ResponseEntity.status(401).body("Credenciales inválidas");
+        try {
+            if (usuario.getCorreo() == null || usuario.getContrasena() == null) {
+                return ResponseEntity.badRequest().body("Faltan campos requeridos");
+            }
+
+            boolean valido = usuarioService.validarCredenciales(usuario.getCorreo(), usuario.getContrasena());
+            if (valido) {
+                Optional<Usuario> usuarioOptional = usuarioService.findByCorreo(usuario.getCorreo());
+                usuarioOptional.ifPresent(u -> session.setAttribute("usuario", u));
+                return ResponseEntity.ok("Inicio de sesión exitoso");
+            } else {
+                return ResponseEntity.status(401).body("Credenciales inválidas");
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Para ver el error en consola
+            return ResponseEntity.status(500).body("Error en el servidor: " + e.getMessage());
         }
     }
 
@@ -60,9 +69,3 @@ public class UsuarioController {
         return ResponseEntity.ok("Endpoint de login disponible");
     }
 }
-
-
-
-
-
-

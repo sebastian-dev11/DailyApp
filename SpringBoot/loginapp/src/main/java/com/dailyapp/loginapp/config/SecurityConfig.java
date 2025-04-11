@@ -27,6 +27,7 @@ public class SecurityConfig {
                     "/home.html", 
                     "/login.html", 
                     "/registro.html",
+                    "/dashboard.html",
                     "/auth/registro", 
                     "/auth/login", 
                     "/auth/usuario",// importante para obtener usuario logueado
@@ -36,8 +37,8 @@ public class SecurityConfig {
                     "/images/**", 
                     "/fonts/**"
                 ).permitAll()
-                .requestMatchers("/dashboard.html", "/dashboard/**").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers("/dashboard.html", "/dashboard/**").authenticated()
+                .anyRequest().permitAll()
             )
             // ✅ No usar .formLogin porque usas JavaScript con fetch
             .logout(logout -> logout
