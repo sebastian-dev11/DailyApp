@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Ingreso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #fce4ec;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 16px 32px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: contents;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 100px;
+            margin-left: 20px;
+        }
+
+        .mensaje-bienvenida {
+            font-size: 1.6em;
+            font-weight: 500;
+            color: #d81b60;
+        }
+
+        .contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .formulario-ingreso {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .formulario-ingreso h1 {
+            color: #d81b60;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #d81b60;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #b0003a;
+        }
+
+        #mensaje {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+
+        .volver-btn {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .volver-btn a {
+            color: #d81b60;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .volver-btn a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <span class="mensaje-bienvenida">Registra aquí tus ingresos</span>
+        <img src="img/DAILYAPP logo.png" alt="Logo de la App">
+    </div>
+</header>
+
+<div class="contenido">
+    <div class="formulario-ingreso">
+        <h1>Registrar Ingreso</h1>
+        <form id="formIngreso">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" required>
+
+            <label for="monto">Monto:</label>
+            <input type="number" id="monto" name="monto" step="0.01" required>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <button type="submit">Guardar Ingreso</button>
+        </form>
+        <p id="mensaje"></p>
+
+        <div class="volver-btn">
+            <a href="dashboard.html">← Volver al Dashboard</a>
+        </div>
+    </div>
+</div>
+
+<script src="js/ingresos.js"></script>
+</body>
+</html>

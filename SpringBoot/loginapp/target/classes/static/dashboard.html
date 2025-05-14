@@ -16,7 +16,7 @@
             justify-content: space-between;
             align-items: center;
             background-color: #ffffff;
-            padding: 12px 24px;
+            padding: 16px 32px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
@@ -27,19 +27,20 @@
 
         .logo-container img {
             height: 120px;
-            margin-right: 10px;
+            margin-left: 5px;
         }
 
         .mensaje-bienvenida {
-            font-size: 1.4em;
-            font-weight: bold;
+            font-size: 1.6em;
+            font-weight: 500;
             color: #d81b60;
+            align-items: center;
         }
 
         .usuario-sesion {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 18px;
         }
 
         .usuario {
@@ -64,8 +65,63 @@
         }
 
         .contenido {
-            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .tarjeta-bienvenida {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px 30px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
+        }
+
+        .tarjeta-bienvenida h1 {
+            color: #d81b60;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta-bienvenida p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .botones-modulos a {
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 14px 22px;
+            background-color: #d81b60;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .botones-modulos a:hover {
+            background-color: #b0003a;
+        }
+
+        /* Estilos para el toast */
+        #toastMessage {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Color de éxito (verde) */
+            color: white;
+            border-radius: 8px;
+            display: none;
+            z-index: 1000;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -75,7 +131,6 @@
     <div class="logo-container">
         <span class="mensaje-bienvenida">Bienvenido a</span>
         <img src="img/DAILYAPP logo.png" alt="Logo de la App">
-        
     </div>
     <div class="usuario-sesion">
         <div class="usuario" id="usuarioNombre">Cargando usuario...</div>
@@ -83,9 +138,28 @@
     </div>
 </header>
 
+<!-- Contenedor del toast -->
+<div id="toastMessage">Gasto actualizado correctamente.</div>
+
 <div class="contenido">
-    <h1>Bienvenido al Dashboard</h1>
-    <p>Aquí verás tus módulos conforme los desarrolles.</p>
+    <div class="tarjeta-bienvenida">
+        <h1>Gestiona tus finanzas personales</h1>
+        <p>Administra tus gastos, ingresos, presupuestos y más desde un solo lugar.</p>
+
+        <div class="botones-modulos">
+            <a href="gastos.html">➕ Agregar Gasto</a>
+            <a href="ingresos.html">💰 Registrar Ingreso</a>
+            <a href="#">📊 Crear Presupuesto</a>
+            <a href="#">📈 Ver Resúmenes</a>
+        </div>
+    </div>
+    <div id="mensajeGasto" style="margin-bottom: 15px; font-weight: bold;"></div>
+    <div style="margin-top: 40px;">
+        <h2 style="color: #d81b60;">Tus Gastos</h2>
+        <div id="gastosContainer" style="margin-top: 20px;">
+            <!-- Aquí se llenarán los gastos dinámicamente -->
+        </div>
+    </div>
 </div>
 
 <script src="js/dashboard.js"></script>

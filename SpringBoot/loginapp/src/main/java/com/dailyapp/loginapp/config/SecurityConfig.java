@@ -28,6 +28,7 @@ public class SecurityConfig {
                     "/login.html", 
                     "/registro.html",
                     "/dashboard.html",
+                    "/ingresos.html",
                     "/auth/registro", 
                     "/auth/login", 
                     "/auth/usuario",// importante para obtener usuario logueado
